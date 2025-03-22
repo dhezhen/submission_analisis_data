@@ -65,11 +65,11 @@ st.markdown(f"""
 🔢 Jumlah Data: {len(filtered_hour)} jam (dari dataset per jam)  
 """)  
 
-# Function untuk menampilkan data  
-def display_data(df, data_name):  
-    st.header(f"Data {data_name} ")  
-    st.write(df.head())  
-    st.write(df.describe())  
+# # Function untuk menampilkan data  
+# def display_data(df, data_name):  
+#     st.header(f"Data {data_name} ")  
+#     st.write(df.head())  
+#     st.write(df.describe())  
 
 # Menampilkan dataset  
 # display_data(day_data, "Harian")  
@@ -354,20 +354,21 @@ def plot_workingday_analysis(data):
 
 # --- Analisis Pendukung di Bawah ---  
 st.divider()  
-tab1, tab2,tab3,tab4,tab5 = st.tabs(["Data Bersih","Pola Hari Kerja","Peyewa Berdasarkan Jam","Kondisi Cuaca", "Kondisi musim"
+tab1, tab2,tab3,tab4= st.tabs(["Pola Hari Kerja","Peyewa Berdasarkan Jam","Kondisi Cuaca", "Kondisi musim"
 ])  
 
-with tab1:  
-    display_data(day_data, "Harian")  
-    display_data(hour_data, "Per Jam")  
-with tab2:
+# with tab1:  
+#     display_data(day_data, "Harian")  
+#     display_data(hour_data, "Per Jam")  
+
+with tab1:
     plot_workingday_analysis(filtered_day) 
-with tab3:  
+with tab2:  
  plot_hourly_analysis(filtered_hour)  
 #  plot_histogram(day_data, 'temperature', "Distribusi Temperatur Harian")  
-with tab4: 
+with tab3: 
     plot_weather_analysis(filtered_day) 
-with tab5: 
+with tab4: 
     plot_seasonal_analysis(filtered_day) 
 
     
